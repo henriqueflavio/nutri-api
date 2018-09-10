@@ -31,9 +31,11 @@ public class Paciente implements Serializable{
 	private Long idPaciente;
 	
 	@OneToOne(mappedBy="idCidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@Column(name="id_cidade")
 	@Getter @Setter
 	private Long idCidade;
 	
+	@Column(name="data_nascimento")
 	@Getter @Setter
 	private Date dataNascimento;
 	
@@ -46,6 +48,7 @@ public class Paciente implements Serializable{
 	@Getter @Setter
 	private String telefone;
 	
+	@Column(name="estado_civil")
 	@Getter @Setter
 	private EstadoCivilEnum estadoCivil;
 	
