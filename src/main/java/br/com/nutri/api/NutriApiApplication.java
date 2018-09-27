@@ -1,20 +1,16 @@
 package br.com.nutri.api;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import br.com.nutri.api.entities.Cidade;
-import br.com.nutri.api.entities.Paciente;
+import br.com.nutri.api.repositories.AlimentoRepository;
 import br.com.nutri.api.repositories.CidadeRepository;
 import br.com.nutri.api.repositories.EstadoRepository;
 import br.com.nutri.api.repositories.PacienteRepository;
+import br.com.nutri.api.repositories.RefeicaoRepository;
 
 @SpringBootApplication
 public class NutriApiApplication {
@@ -27,6 +23,12 @@ public class NutriApiApplication {
 	
 	@Autowired
 	CidadeRepository cidadeRepository;
+	
+	@Autowired
+	RefeicaoRepository refeicaoRepository;
+	
+	@Autowired
+	AlimentoRepository alimentoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(NutriApiApplication.class, args);
@@ -41,20 +43,23 @@ public class NutriApiApplication {
 //		estadoRepository.save(estado);
 		
 
-		Cidade cidade = new Cidade();
-		cidade.setIdCidade(1L);
+//		Cidade cidade = new Cidade();
+//		cidade.setIdCidade(1L);
 //		cidade.setEstado(estado);
 		
 //		cidadeRepository.save(cidade);
 		
 		
-		Paciente paciente = new Paciente();
-		paciente.setNome("Flávio");
-		paciente.setCpf("08274477448");
-		paciente.setCidade(cidade);
-		paciente.setDataNascimento(LocalDate.now());
+//		Paciente paciente = new Paciente();
+//		paciente.setNome("Flávio");
+//		paciente.setCpf("08274477448");
+//		paciente.setCidade(cidade);
+//		paciente.setDataNascimento(LocalDate.now());
+//		
+//		pacienteRepository.save(paciente);
 		
-		pacienteRepository.save(paciente);
+		
+			
 			
 		};
 	}
