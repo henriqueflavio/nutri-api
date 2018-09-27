@@ -1,16 +1,16 @@
 package br.com.nutri.api.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import br.com.nutri.api.enums.EstadoCivilEnum;
@@ -24,20 +24,26 @@ public class Paciente implements Serializable{
 	private static final long serialVersionUID = -8782878380575171426L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	@Getter @Setter
-	
 	@Column(name="id_paciente")
-	private Long idPaciente;
-	
-	@OneToOne(mappedBy="idCidade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@Column(name="id_cidade")
+	@SequenceGenerator(name="paciente_id_paciente_seq", 
+	   				   sequenceName="paciente_id_paciente_seq", 
+	   				   allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,
+					generator="paciente_id_paciente_seq")
 	@Getter @Setter
-	private Long idCidade;
+	private Long idPaciente;
+		
+	@OneToOne
+	@JoinColumn(name="idCidade")
+	@Getter @Setter
+	private Cidade cidade;
+	
+	@Getter @Setter
+	private String nome;
 	
 	@Column(name="data_nascimento")
 	@Getter @Setter
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	
 	@Getter @Setter
 	private String sexo;

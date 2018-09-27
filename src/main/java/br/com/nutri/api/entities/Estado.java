@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -19,8 +20,12 @@ public class Estado implements Serializable {
 	private static final long serialVersionUID = 9129150506760734767L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name="id_estado")
+	@SequenceGenerator(name="estado_id_estado_seq", 
+					   sequenceName="estado_id_estado_seq", 
+					   allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, 
+				    generator="estado_id_estado_seq")
 	@Getter @Setter
 	private Long idEstado;
 	
