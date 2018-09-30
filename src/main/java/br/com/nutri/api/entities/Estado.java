@@ -21,11 +21,8 @@ public class Estado implements Serializable {
 	
 	@Id
 	@Column(name="id_estado")
-	@SequenceGenerator(name="estado_id_estado_seq", 
-					   sequenceName="estado_id_estado_seq", 
-					   allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, 
-				    generator="estado_id_estado_seq")
+	@SequenceGenerator(name="estado_id_estado_seq", sequenceName="estado_id_estado_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="estado_id_estado_seq")
 	@Getter @Setter
 	private Long idEstado;
 	

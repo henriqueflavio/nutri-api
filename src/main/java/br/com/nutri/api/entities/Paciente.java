@@ -25,11 +25,8 @@ public class Paciente implements Serializable{
 
 	@Id
 	@Column(name="id_paciente")
-	@SequenceGenerator(name="paciente_id_paciente_seq", 
-	   				   sequenceName="paciente_id_paciente_seq", 
-	   				   allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,
-					generator="paciente_id_paciente_seq")
+	@SequenceGenerator(name="paciente_id_paciente_seq", sequenceName="paciente_id_paciente_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="paciente_id_paciente_seq")
 	@Getter @Setter
 	private Long idPaciente;
 		

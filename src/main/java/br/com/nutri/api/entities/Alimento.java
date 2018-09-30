@@ -2,10 +2,8 @@ package br.com.nutri.api.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,6 +33,7 @@ public class Alimento {
 	@Getter @Setter
 	private String medida;
 	
-	@ManyToMany(fetch=FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, mappedBy="alimentos")
+	@ManyToMany(mappedBy="alimentos")
+	@Getter @Setter
 	private List<Refeicao> refeicoes;
 }

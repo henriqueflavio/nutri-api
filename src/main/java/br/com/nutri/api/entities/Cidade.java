@@ -23,11 +23,8 @@ public class Cidade implements Serializable {
 
 	@Id
 	@Column(name="id_cidade")
-	@SequenceGenerator(name="cidade_id_cidade_seq", 
-					   sequenceName="cidade_id_cidade_seq", 
-					   allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,
-					generator="cidade_id_cidade_seq")
+	@SequenceGenerator(name="cidade_id_cidade_seq", sequenceName="cidade_id_cidade_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cidade_id_cidade_seq")
 	@Getter @Setter
 	private Long idCidade;
 	
