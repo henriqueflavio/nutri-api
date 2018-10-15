@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
@@ -37,7 +38,7 @@ public class Refeicao {
 	private String observacao;
 	
 	@ManyToMany
-	@JoinTable(name="refeicao_alimento")
+	@JoinTable(name = "refeicao_alimento", joinColumns = @JoinColumn(name = "id_refeicao"), inverseJoinColumns = @JoinColumn(name = "id_alimento"))
 	@Getter @Setter
 	private List<Alimento> alimentos;
 }
